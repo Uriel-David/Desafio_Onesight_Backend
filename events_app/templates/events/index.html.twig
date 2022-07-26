@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events List{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h3 class="mt-5 mb-5">Events</h3>
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-success mt-3 mb-3">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Event Description</th>
+                    <th scope="col">Expected Participants</th>
+                    <th scope="col">Event Date</th>
+                    <th scope="col">Approval</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                    <tr>
+                        <th scope="row">{{ event.getId }}</th>
+                        <td>{{ event.getEventName }}</td>
+                        <td>{{ event.getEventDescription }}</td>
+                        <td>{{ event.getExpectedParticipants }}</td>
+                        <td>{{ event.getDateEvent.format('d/m/Y') }}</td>
+                        <td>
+                            {{ event.isApproval == true
+                                ? 'Approved'
+                                : 'Not Approved'
+                            }}
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" href="{{ path('events_update',{'id':event.getId}) }}">Update Event</a>
+                            <a class="btn btn-danger" href="{{ path('events_delete',{'id':event.getId}) }}">Delete Event</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="btn btn-info" href="/events/create">New Event</a>
+    </div>
+{% endblock %}
