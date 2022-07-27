@@ -42,7 +42,7 @@ class EventController extends AbstractController
             $entityManager->persist($event);
             $entityManager->flush();
             
-            $this->addFlash('notice', 'Update Successfully!');
+            $this->addFlash('notice', 'Create Successfully!');
 
             return $this->redirectToRoute('events_index');
         }
@@ -66,7 +66,7 @@ class EventController extends AbstractController
             $entityManager->persist($event);
             $entityManager->flush();
             
-            $this->addFlash('notice', 'Updated Successfully!');
+            $this->addFlash('notice', 'Update Successfully!');
 
             return $this->redirectToRoute('events_index');
         }
@@ -86,7 +86,7 @@ class EventController extends AbstractController
         $entityManager->remove($event);
         $entityManager->flush();
 
-        $this->addFlash('notice', 'Deleted Successfully!');
+        $this->addFlash('notice', 'Delete Successfully!');
 
         return $this->redirectToRoute('events_index');
     }
