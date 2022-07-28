@@ -7,8 +7,8 @@ services:
     command: --default-authentication-plugin=caching_sha2_password
     restart: always
     environment:
-      MYSQL_DATABASE: events_app
-      MYSQL_ROOT_PASSWORD: ${PASSWORD_DATABASE}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
     ports:
       - 3306:3306
 
