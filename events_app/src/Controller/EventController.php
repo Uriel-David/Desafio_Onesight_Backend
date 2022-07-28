@@ -19,8 +19,8 @@ class EventController extends AbstractController
     {
         $events = $doctrine->getRepository(Events::class)->findAll();
 
-        if (!$events) {
-            $events = null;
+        if (empty($events)) {
+            $this->addFlash('notice', 'Could not find events!');
         }
 
         return $this->render('events/index.html.twig', [
