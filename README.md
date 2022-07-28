@@ -33,3 +33,7 @@ The project has basically 3 pages, index, create and update.
 - Index: the admin can visualize all the events created, having the option to update the events or delete them.
 - Create: It is possible to create events through a form and thus save the information in the database, to be visualized in the index.
 - Delete: It is possible to update events through a form and thus approve the event and update the information in the database, to be visualized in the index.
+
+## Tests
+There is a simple unit test to verify the connectivity and insertion of data in the database. Use the following command to use test:
+- `symfony php bin/phpunit tests/EventsTest.php`
